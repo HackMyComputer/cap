@@ -1,0 +1,23 @@
+Command: ninja all
+[1/11] Performing build step for 'bootloader'
+[1/1] cd /home/sergio/CAP/firmware/build/bootloader/esp-idf/esptool_py && /home/sergio/.espressif/python_env/idf5.5_py3.13_env/bin/python /mnt/disk/App_linux/opt/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/sergio/CAP/firmware/build/bootloader/bootloader.bin
+Bootloader binary size 0x6680 bytes. 0x980 bytes (8%) free.
+[2/11] No install step for 'bootloader'
+[3/11] Completed 'bootloader'
+[4/11] Building C object esp-idf/flac_decoder/CMakeFiles/__idf_flac_decoder.dir/flac_streamer.c.obj
+/home/sergio/CAP/firmware/components/audio/flac_decoder/flac_streamer.c:121:15: warning: 'ring_free_space' defined but not used [-Wunused-function]
+  121 | static size_t ring_free_space()
+      |               ^~~~~~~~~~~~~~~
+[5/11] Linking C static library esp-idf/flac_decoder/libflac_decoder.a
+[6/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/app_main.c.obj
+[7/11] Linking C static library esp-idf/main/libmain.a
+[8/11] Generating esp-idf/esp_system/ld/sections.ld
+[9/11] Linking CXX executable app_main.elf
+[10/11] Generating binary image from built executable
+esptool.py v4.10.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/sergio/CAP/firmware/build/app_main.bin
+[11/11] cd /home/sergio/CAP/firmware/build/esp-idf/esptool_py && /home/sergio/.espressif/python_env/idf5.5_py3.13_env/bin/python /mnt/disk/App_linux/opt/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/sergio/CAP/firmware/build/partition_table/partition-table.bin /home/sergio/CAP/firmware/build/app_main.bin
+app_main.bin binary size 0xd7590 bytes. Smallest app partition is 0x1f0000 bytes. 0x118a70 bytes (57%) free.

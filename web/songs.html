@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD Card Music Player</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: 300;
+        }
+        .player-controls {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        #current-song {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .control-btn {
+            background: white;
+            color: #4a5568;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .control-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        #song-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+        .song-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .song-item:hover {
+            background: #f7fafc;
+        }
+        .song-item:last-child {
+            border-bottom: none;
+        }
+        .song-item.playing {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+        }
+        .song-info {
+            flex: 1;
+            margin-left: 15px;
+        }
+        .song-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .song-duration {
+            color: #718096;
+            font-size: 14px;
+        }
+        .play-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #48bb78;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 15px;
+        }
+        .song-item.playing .play-icon {
+            background: white;
+            color: #667eea;
+        }
+        #refresh-btn {
+            display: block;
+            width: 100%;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        #refresh-btn:hover {
+            transform: translateY(-2px);
+        }
+        #status {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #718096;
+            min-height: 20px;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 SD Card Music Player</h1>
+        
+        <div class="player-controls">
+            <div id="current-song">No song selected</div>
+            <button id="prev-btn" class="control-btn">⏮</button>
+            <button id="play-pause-btn" class="control-btn">▶</button>
+            <button id="next-btn" class="control-btn">⏭</button>
+        </div>
+
+        <div id="song-list">
+            <!-- Songs will be populated here -->
+        </div>
+        
+        <button id="refresh-btn">🔄 Refresh Song List</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const songList = document.getElementById('song-list');
+        const refreshBtn = document.getElementById('refresh-btn');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const currentSongDiv = document.getElementById('current-song');
+        const statusDiv = document.getElementById('status');
+
+        let songs = [];
+        let currentSongIndex = -1;
+        let isPlaying = false;
+
+        // Fetch and display songs
+        async function fetchSongs() {
+            statusDiv.textContent = 'Loading songs...';
+            try {
+                const response = await fetch('/songs'); // ESP32 endpoint returns JSON: [{name: string, path: string, duration: number}, ...]
+                if (!response.ok) throw new Error('Failed to fetch songs');
+                songs = await response.json();
+
+                renderSongList();
+                if (songs.length === 0) {
+                    statusDiv.textContent = 'No songs found on SD card.';
+                } else {
+                    statusDiv.textContent = `${songs.length} song(s) found.`;
+                }
+            } catch (error) {
+                statusDiv.textContent = 'Error: ' + error.message;
+            }
+        }
+
+        // Render song list
+        function renderSongList() {
+            songList.innerHTML = '';
+            songs.forEach((song, index) => {
+                const songDiv = document.createElement('div');
+                songDiv.className = 'song-item';
+                songDiv.innerHTML = `
+                    <div class="play-icon">▶</div>
+                    <div class="song-info">
+                        <div class="song-name">${song.name}</div>
+                        <div class="song-duration">${formatDuration(song.duration)}</div>
+                    </div>
+                `;
+                songDiv.addEventListener('click', () => playSong(index));
+                songList.appendChild(songDiv);
+            });
+        }
+
+        // Play a song
+        async function playSong(index) {
+            if (index === currentSongIndex && isPlaying) {
+                await pauseSong();
+                return;
+            }
+
+            currentSongIndex = index;
+            isPlaying = true;
+            updateUI();
+
+            statusDiv.textContent = `Playing: ${songs[index].name}`;
+            try {
+                const response = await fetch(`/play?path=${encodeURIComponent(songs[index].path)}`, {
+                    method: 'POST'
+                });
+                if (!response.ok) throw new Error('Failed to play song');
+            } catch (error) {
+                statusDiv.textContent = 'Error playing song: ' + error.message;
+                isPlaying = false;
+                updateUI();
+            }
+        }
+
+        // Pause current song
+        async function pauseSong() {
+            if (!isPlaying) return;
+            
+            isPlaying = false;
+            updateUI();
+            
+            try {
+                await fetch('/pause', { method: 'POST' });
+                statusDiv.textContent = 'Paused';
+            } catch (error) {
+                statusDiv.textContent = 'Error pausing: ' + error.message;
+            }
+        }
+
+        // Play/Pause toggle
+        async function togglePlayPause() {
+            if (isPlaying) {
+                await pauseSong();
+            } else if (currentSongIndex >= 0) {
+                await playSong(currentSongIndex);
+            }
+        }
+
+        // Previous song
+        function playPrevious() {
+            if (currentSongIndex > 0) {
+                playSong(currentSongIndex - 1);
+            }
+        }
+
+        // Next song
+        function playNext() {
+            if (currentSongIndex < songs.length - 1) {
+                playSong(currentSongIndex + 1);
+            }
+        }
+
+        // Update UI
+        function updateUI() {
+            // Update current song display
+            if (currentSongIndex >= 0) {
+                currentSongDiv.textContent = songs[currentSongIndex].name;
+            } else {
+                currentSongDiv.textContent = 'No song selected';
+            }
+
+            // Update play/pause button
+            playPauseBtn.textContent = isPlaying ? '⏸' : '▶';
+
+            // Update song list highlighting
+            document.querySelectorAll('.song-item').forEach((item, index) => {
+                item.classList.toggle('playing', index === currentSongIndex && isPlaying);
+            });
+
+            // Enable/disable nav buttons
+            prevBtn.disabled = currentSongIndex <= 0 && !isPlaying;
+            nextBtn.disabled = currentSongIndex >= songs.length - 1 && !isPlaying;
+        }
+
+        // Format duration (seconds to MM:SS)
+        function formatDuration(seconds) {
+            if (!seconds) return '00:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Event listeners
+        refreshBtn.addEventListener('click', fetchSongs);
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        prevBtn.addEventListener('click', playPrevious);
+        nextBtn.addEventListener('click', playNext);
+
+        // Initialize
+        window.addEventListener('load', fetchSongs);
+    </script>
+</body>
+</html>

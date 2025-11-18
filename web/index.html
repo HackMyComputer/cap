@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluetooth Devices Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        #device-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        #device-list th, #device-list td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        #device-list th {
+            background-color: #3498db;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #device-list tr:hover {
+            background-color: #f9f9f9;
+        }
+        .connect-btn {
+            background-color: #27ae60;
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .connect-btn:hover {
+            background-color: #219a52;
+        }
+        #refresh-btn {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            background-color: #e67e22;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        #refresh-btn:hover {
+            background-color: #d35400;
+        }
+        #status {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Available Bluetooth Devices</h1>
+        <table id="device-list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>RSSI</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Devices will be populated here via JavaScript -->
+            </tbody>
+        </table>
+        <button id="refresh-btn">Refresh Scan</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const deviceTableBody = document.querySelector('#device-list tbody');
+        const refreshBtn = document.getElementById('refresh-btn');
+        const statusDiv = document.getElementById('status');
+
+        // Function to fetch and display devices
+        async function fetchDevices() {
+            statusDiv.textContent = 'Loading devices...';
+            try {
+                const response = await fetch('/devices'); // Assumes ESP32 endpoint for JSON list of devices
+                if (!response.ok) throw new Error('Failed to fetch devices');
+                const devices = await response.json(); // Expecting [{name: string, address: string, rssi: number}, ...]
+
+                deviceTableBody.innerHTML = ''; // Clear table
+                if (devices.length === 0) {
+                    statusDiv.textContent = 'No devices found.';
+                    return;
+                }
+
+                devices.forEach(device => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${device.name || 'Unknown'}</td>
+                        <td>${device.address}</td>
+                        <td>${device.rssi} dBm</td>
+                        <td><button class="connect-btn" data-address="${device.address}">Connect</button></td>
+                    `;
+                    deviceTableBody.appendChild(row);
+                });
+
+                // Add click listeners to connect buttons
+                document.querySelectorAll('.connect-btn').forEach(btn => {
+                    btn.addEventListener('click', handleConnect);
+                });
+
+                statusDiv.textContent = '';
+            } catch (error) {
+                statusDiv.textContent = 'Error loading devices: ' + error.message;
+            }
+        }
+
+        // Function to handle connection
+        async function handleConnect(event) {
+            const address = event.target.getAttribute('data-address');
+            statusDiv.textContent = `Connecting to ${address}...`;
+            try {
+                const response = await fetch(`/connect?address=${encodeURIComponent(address)}`, {
+                    method: 'POST'
+                });
+                if (!response.ok) throw new Error('Connection failed');
+                statusDiv.textContent = `Connected to ${address}!`;
+            } catch (error) {
+                statusDiv.textContent = 'Error connecting: ' + error.message;
+            }
+        }
+
+        // Function to trigger a new scan
+        async function triggerScan() {
+            statusDiv.textContent = 'Scanning for devices...';
+            try {
+                const response = await fetch('/scan', { method: 'POST' }); // Assumes ESP32 endpoint to start scan
+                if (!response.ok) throw new Error('Scan failed');
+                await fetchDevices(); // Refresh list after scan
+            } catch (error) {
+                statusDiv.textContent = 'Error scanning: ' + error.message;
+            }
+        }
+
+        // Event listeners
+        refreshBtn.addEventListener('click', triggerScan);
+        window.addEventListener('load', fetchDevices); // Load devices on page load
+    </script>
+</body>
+</html>
+

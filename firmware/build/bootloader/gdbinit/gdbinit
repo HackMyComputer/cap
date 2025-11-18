@@ -1,0 +1,2 @@
+source /home/sergio/CAP/firmware/build/bootloader/gdbinit/symbols
+source /home/sergio/CAP/firmware/build/bootloader/gdbinit/connect
