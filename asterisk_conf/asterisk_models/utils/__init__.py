@@ -1,3 +1,0 @@
-''' 
-    Does nothing actually
-'''
