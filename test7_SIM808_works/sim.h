@@ -1,21 +1,16 @@
 
 #if defined(__AVR__)
 
-//Define some helper macro here 
-
 #ifndef __HAVE_SIM808_H 
 #define __HAVE_SIM808_H 
-
-#endif 
+ 
 // Maybe some additional features here 
 
-#endif
+#if not defined __always_inline 
+#define __always_inline   __attribute__((always_inline)) 
+#endif // __always_inline
 
-  /*while (Serial.available())
-    Serial.read();
-}*/
-
-void ringBuzzer(const int buzzer)
+__always_inline void ringBuzzer(const int buzzer)
 {
   tone(buzzer, 1000);
   delay(250);
@@ -24,7 +19,10 @@ void ringBuzzer(const int buzzer)
   noTone(buzzer);
 }
 
-void flushSerial() {
+__always_inline void flushSerial() {
   while (Serial.available())
     Serial.read();
 }
+
+#endif // __HAVE_SIM808_H 
+#endif // __AVR__
