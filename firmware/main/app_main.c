@@ -17,8 +17,8 @@ static void __initializer(void) {
   __BEGIN_OBJ_DEF_XS_CC
   __qp_monitor_internal __qpObject = __qp_monitor_internal();
   }
-  __qpObject.writeToMonitor = write_to_monitor;
-  __qpObject.qpObjectInitLCD = __qp_monitor_init;
+  //__qpObject.writeToMonitor = write_to_monitor;
+  //__qpObject.qpObjectInitLCD = __qp_monitor_init;
   __END_OBJ_DEF_XS_CC
 #else
   __qp_init_lcd(); // Init the screen task

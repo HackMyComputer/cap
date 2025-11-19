@@ -559,6 +559,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/home/sergio/CAP/firmware/build/esp-idf/mp3_decoder/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/home/sergio/CAP/firmware/build/esp-idf/flac_decoder/cmake_install.cmake")
 endif()
 
@@ -599,12 +604,17 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/sergio/CAP/firmware/build/esp-idf/format/cmake_install.cmake")
+  include("/home/sergio/CAP/firmware/build/esp-idf/fmt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("/home/sergio/CAP/firmware/build/esp-idf/qapass/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/sergio/CAP/firmware/build/esp-idf/fft/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
