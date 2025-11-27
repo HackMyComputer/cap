@@ -1,0 +1,30 @@
+com.infinity.monmodule.monModule' -navigation-runtime-2.3.2-0 /home/manda/.gradle/caches/8.13/transforms/04c49e26f7fe16d93bffcf326bdae024/transformed/navigation-runtime-2.3.2/res
+com.infinity.monmodule.monModule' -navigation-common-2.3.2-1 /home/manda/.gradle/caches/8.13/transforms/04f601b8585de0fef3af813d1c6c7b70/transformed/navigation-common-2.3.2/res
+com.infinity.monmodule.monModule' -filament-android-1.15.0-2 /home/manda/.gradle/caches/8.13/transforms/0c4d26d092af84ed2a4f0247427bfcfe/transformed/filament-android-1.15.0/res
+com.infinity.monmodule.monModule' -appcompat-resources-1.2.0-3 /home/manda/.gradle/caches/8.13/transforms/0df6b03a6fda5602990e10ec8c92d50c/transformed/appcompat-resources-1.2.0/res
+com.infinity.monmodule.monModule' -appcompat-1.2.0-4 /home/manda/.gradle/caches/8.13/transforms/15e9ee6e609894042c84c71f2a690777/transformed/appcompat-1.2.0/res
+com.infinity.monmodule.monModule' -fragment-1.2.4-5 /home/manda/.gradle/caches/8.13/transforms/187916dba31ab649569c27493584c557/transformed/fragment-1.2.4/res
+com.infinity.monmodule.monModule' -support-compat-27.1.0-6 /home/manda/.gradle/caches/8.13/transforms/203d57edb604d784c165e3b5b9ca88bc/transformed/support-compat-27.1.0/res
+com.infinity.monmodule.monModule' -drawerlayout-1.1.1-7 /home/manda/.gradle/caches/8.13/transforms/2624c9af509dba0cac01976c642f2a48/transformed/drawerlayout-1.1.1/res
+com.infinity.monmodule.monModule' -transition-1.3.0-8 /home/manda/.gradle/caches/8.13/transforms/278ee6e479c64405877b4b11306e0556/transformed/transition-1.3.0/res
+com.infinity.monmodule.monModule' -support-core-ui-27.1.0-9 /home/manda/.gradle/caches/8.13/transforms/28134941a686d18a01e1fc79235b584f/transformed/support-core-ui-27.1.0/res
+com.infinity.monmodule.monModule' -cardview-1.0.0-10 /home/manda/.gradle/caches/8.13/transforms/2826cbc3ad57992c71859e4c7711de41/transformed/cardview-1.0.0/res
+com.infinity.monmodule.monModule' -constraintlayout-2.0.4-11 /home/manda/.gradle/caches/8.13/transforms/525a0877bdbf7133860538eaee7007e5/transformed/constraintlayout-2.0.4/res
+com.infinity.monmodule.monModule' -recyclerview-1.1.0-12 /home/manda/.gradle/caches/8.13/transforms/7484bdf91c785a85472b16d8d8a92989/transformed/recyclerview-1.1.0/res
+com.infinity.monmodule.monModule' -core-1.3.2-13 /home/manda/.gradle/caches/8.13/transforms/75abb601b4f69202803f333f02cb180d/transformed/core-1.3.2/res
+com.infinity.monmodule.monModule' -navigation-ui-2.3.2-14 /home/manda/.gradle/caches/8.13/transforms/831c852f268a7c9365ae955676f6e894/transformed/navigation-ui-2.3.2/res
+com.infinity.monmodule.monModule' -navigation-fragment-2.3.2-15 /home/manda/.gradle/caches/8.13/transforms/88fe26617fad0d95d10c44ed33102989/transformed/navigation-fragment-2.3.2/res
+com.infinity.monmodule.monModule' -material-1.2.1-16 /home/manda/.gradle/caches/8.13/transforms/8ac87c96a990939160da11e1ed371095/transformed/material-1.2.1/res
+com.infinity.monmodule.monModule' -core-1.23.0-17 /home/manda/.gradle/caches/8.13/transforms/a6f1688fea828d55765118239865a392/transformed/core-1.23.0/res
+com.infinity.monmodule.monModule' -viewpager2-1.0.0-18 /home/manda/.gradle/caches/8.13/transforms/b4166b29ecc118b0d45bbcf021c4edbc/transformed/viewpager2-1.0.0/res
+com.infinity.monmodule.monModule' -rendering-1.15.0-19 /home/manda/.gradle/caches/8.13/transforms/c8846400a6a078e7bf4bd67b33888654/transformed/rendering-1.15.0/res
+com.infinity.monmodule.monModule' -coordinatorlayout-1.1.0-20 /home/manda/.gradle/caches/8.13/transforms/e09bd77ce226258176774afec00acaa1/transformed/coordinatorlayout-1.1.0/res
+com.infinity.monmodule.monModule' -sceneform-ux-1.15.0-21 /home/manda/.gradle/caches/8.13/transforms/f794c0f9f07215962a1bd6d06244bb85/transformed/sceneform-ux-1.15.0/res
+com.infinity.monmodule.monModule' -pngs-22 /home/manda/AndroidStudioProjects/GLBARViewer/include '/app', '/monModule' /build/generated/res/pngs/debug
+com.infinity.monmodule.monModule' -resValues-23 /home/manda/AndroidStudioProjects/GLBARViewer/include '/app', '/monModule' /build/generated/res/resValues/debug
+com.infinity.monmodule.monModule' -updated_navigation_xml-24 /home/manda/AndroidStudioProjects/GLBARViewer/include '/app', '/monModule' /build/generated/updated_navigation_xml/debug
+com.infinity.monmodule.monModule' -packageDebugResources-25 /home/manda/AndroidStudioProjects/GLBARViewer/include '/app', '/monModule' /build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.infinity.monmodule.monModule' -packageDebugResources-26 /home/manda/AndroidStudioProjects/GLBARViewer/include '/app', '/monModule' /build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.infinity.monmodule.monModule' -debug-27 /home/manda/AndroidStudioProjects/GLBARViewer/include '/app', '/monModule' /build/intermediates/merged_res/debug/mergeDebugResources
+com.infinity.monmodule.monModule' -debug-28 /home/manda/AndroidStudioProjects/GLBARViewer/include '/app', '/monModule' /src/debug/res
+com.infinity.monmodule.monModule' -main-29 /home/manda/AndroidStudioProjects/GLBARViewer/include '/app', '/monModule' /src/main/res

@@ -1,0 +1,215 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.glbarviewer"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="36" />
+10
+11    <!-- Permissions -->
+12    <uses-permission android:name="android.permission.CAMERA" />
+12-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:6:5-8:71
+12-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:7:9-49
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:9:5-67
+13-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:9:22-64
+14
+15    <!-- Matériel / fonctionnalités requises -->
+16    <uses-feature
+16-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:12:5-14:35
+17        android:name="android.hardware.camera.ar"
+17-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:13:9-50
+18        android:required="true" />
+18-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:14:9-32
+19    <!-- Optionnel mais recommandé pour ARCore -->
+20    <uses-feature
+20-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:16:5-18:35
+21        android:glEsVersion="0x00020000"
+21-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:17:9-41
+22        android:required="true" />
+22-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:18:9-32
+23
+24    <permission
+24-->[androidx.core:core:1.17.0] /home/manda/.gradle/caches/8.13/transforms/e4d9df7ebe2f42b882fdf9fd4156e219/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+25        android:name="com.example.glbarviewer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+25-->[androidx.core:core:1.17.0] /home/manda/.gradle/caches/8.13/transforms/e4d9df7ebe2f42b882fdf9fd4156e219/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+26        android:protectionLevel="signature" />
+26-->[androidx.core:core:1.17.0] /home/manda/.gradle/caches/8.13/transforms/e4d9df7ebe2f42b882fdf9fd4156e219/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+27
+28    <uses-permission android:name="com.example.glbarviewer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+28-->[androidx.core:core:1.17.0] /home/manda/.gradle/caches/8.13/transforms/e4d9df7ebe2f42b882fdf9fd4156e219/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+28-->[androidx.core:core:1.17.0] /home/manda/.gradle/caches/8.13/transforms/e4d9df7ebe2f42b882fdf9fd4156e219/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+29
+30    <queries>
+30-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:20:5-27:15
+31        <package android:name="com.google.ar.core" />
+31-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:21:9-54
+31-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:21:18-51
+32        <package android:name="com.android.vending" />
+32-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:22:9-55
+32-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:22:18-52
+33
+34        <intent>
+34-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:24:9-26:18
+35            <action android:name="com.google.android.play.core.install.BIND_INSTALL_SERVICE" />
+35-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:25:13-96
+35-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:25:21-93
+36        </intent>
+37    </queries>
+38
+39    <application
+39-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:20:5-52:19
+40        android:allowBackup="true"
+40-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:21:9-35
+41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+41-->[androidx.core:core:1.17.0] /home/manda/.gradle/caches/8.13/transforms/e4d9df7ebe2f42b882fdf9fd4156e219/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
+42        android:dataExtractionRules="@xml/data_extraction_rules"
+42-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:22:9-65
+43        android:debuggable="true"
+44        android:extractNativeLibs="false"
+45        android:fullBackupContent="@xml/backup_rules"
+45-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:23:9-54
+46        android:icon="@mipmap/ic_launcher"
+46-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:24:9-43
+47        android:label="@string/app_name"
+47-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:25:9-41
+48        android:roundIcon="@mipmap/ic_launcher_round"
+48-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:26:9-54
+49        android:supportsRtl="true"
+49-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:27:9-35
+50        android:testOnly="true"
+51        android:theme="@style/Theme.GLBARViewer" >
+51-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:28:9-49
+52
+53        <!-- Indique à ARCore que l'app est AR requise -->
+54        <meta-data
+54-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:32:9-34:40
+55            android:name="com.google.ar.core"
+55-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:33:13-46
+56            android:value="required" />
+56-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:34:13-37
+57
+58        <activity
+58-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:36:9-50:20
+59            android:name="com.example.glbarviewer.MainActivity"
+59-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:37:13-41
+60            android:exported="true"
+60-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:38:13-36
+61            android:label="@string/app_name"
+61-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:39:13-45
+62            android:theme="@style/Theme.GLBARViewer" >
+62-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:40:13-53
+63            <intent-filter>
+63-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:43:13-48:29
+64                <action android:name="android.intent.action.MAIN" />
+64-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:44:17-69
+64-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:44:25-66
+65                <!-- ICI il manquait le '' dans category -->
+66                <category android:name="android.intent.category.LAUNCHER" />
+66-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:46:16-47:47
+66-->/home/manda/AndroidStudioProjects/GLBARViewer/app/src/main/AndroidManifest.xml:46:26-73
+67            </intent-filter>
+68        </activity>
+69        <activity
+69-->[androidx.compose.ui:ui-tooling-android:1.7.0] /home/manda/.gradle/caches/8.13/transforms/7682dd168e189a3f59b265c50e911e59/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+70            android:name="androidx.compose.ui.tooling.PreviewActivity"
+70-->[androidx.compose.ui:ui-tooling-android:1.7.0] /home/manda/.gradle/caches/8.13/transforms/7682dd168e189a3f59b265c50e911e59/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+71            android:exported="true" />
+71-->[androidx.compose.ui:ui-tooling-android:1.7.0] /home/manda/.gradle/caches/8.13/transforms/7682dd168e189a3f59b265c50e911e59/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+72        <activity
+72-->[androidx.compose.ui:ui-test-manifest:1.7.0] /home/manda/.gradle/caches/8.13/transforms/e045ca48c5d053e289c0caee12d2e868/transformed/ui-test-manifest-1.7.0/AndroidManifest.xml:23:9-25:39
+73            android:name="androidx.activity.ComponentActivity"
+73-->[androidx.compose.ui:ui-test-manifest:1.7.0] /home/manda/.gradle/caches/8.13/transforms/e045ca48c5d053e289c0caee12d2e868/transformed/ui-test-manifest-1.7.0/AndroidManifest.xml:24:13-63
+74            android:exported="true" />
+74-->[androidx.compose.ui:ui-test-manifest:1.7.0] /home/manda/.gradle/caches/8.13/transforms/e045ca48c5d053e289c0caee12d2e868/transformed/ui-test-manifest-1.7.0/AndroidManifest.xml:25:13-36
+75
+76        <provider
+76-->[androidx.emoji2:emoji2:1.3.0] /home/manda/.gradle/caches/8.13/transforms/d87211d1c4034b55dd8c7a0fae15a0e5/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+77            android:name="androidx.startup.InitializationProvider"
+77-->[androidx.emoji2:emoji2:1.3.0] /home/manda/.gradle/caches/8.13/transforms/d87211d1c4034b55dd8c7a0fae15a0e5/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+78            android:authorities="com.example.glbarviewer.androidx-startup"
+78-->[androidx.emoji2:emoji2:1.3.0] /home/manda/.gradle/caches/8.13/transforms/d87211d1c4034b55dd8c7a0fae15a0e5/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+79            android:exported="false" >
+79-->[androidx.emoji2:emoji2:1.3.0] /home/manda/.gradle/caches/8.13/transforms/d87211d1c4034b55dd8c7a0fae15a0e5/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+80            <meta-data
+80-->[androidx.emoji2:emoji2:1.3.0] /home/manda/.gradle/caches/8.13/transforms/d87211d1c4034b55dd8c7a0fae15a0e5/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+81                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+81-->[androidx.emoji2:emoji2:1.3.0] /home/manda/.gradle/caches/8.13/transforms/d87211d1c4034b55dd8c7a0fae15a0e5/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+82                android:value="androidx.startup" />
+82-->[androidx.emoji2:emoji2:1.3.0] /home/manda/.gradle/caches/8.13/transforms/d87211d1c4034b55dd8c7a0fae15a0e5/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+83            <meta-data
+83-->[androidx.lifecycle:lifecycle-process:2.9.4] /home/manda/.gradle/caches/8.13/transforms/cce39104404619db5f0a3a2d6c8a2b61/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:29:13-31:52
+84                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+84-->[androidx.lifecycle:lifecycle-process:2.9.4] /home/manda/.gradle/caches/8.13/transforms/cce39104404619db5f0a3a2d6c8a2b61/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:30:17-78
+85                android:value="androidx.startup" />
+85-->[androidx.lifecycle:lifecycle-process:2.9.4] /home/manda/.gradle/caches/8.13/transforms/cce39104404619db5f0a3a2d6c8a2b61/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:31:17-49
+86            <meta-data
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+87                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+88                android:value="androidx.startup" />
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+89        </provider> <!-- The minimal version code of ARCore APK required for an app using this SDK. -->
+90        <meta-data
+90-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:32:9-34:41
+91            android:name="com.google.ar.core.min_apk_version"
+91-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:33:13-62
+92            android:value="251660000" /> <!-- This activity is critical for installing ARCore when it is not already present. -->
+92-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:34:13-38
+93        <activity
+93-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:36:9-42:80
+94            android:name="com.google.ar.core.InstallActivity"
+94-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:37:13-62
+95            android:configChanges="keyboardHidden|orientation|screenSize"
+95-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:38:13-74
+96            android:excludeFromRecents="true"
+96-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:39:13-46
+97            android:exported="false"
+97-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:40:13-37
+98            android:launchMode="singleTop"
+98-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:41:13-43
+99            android:theme="@android:style/Theme.Material.Light.Dialog.Alert" />
+99-->[com.google.ar:core:1.51.0] /home/manda/.gradle/caches/8.13/transforms/38882a4efdf07f3049f41069e91f2b3c/transformed/core-1.51.0/AndroidManifest.xml:42:13-77
+100
+101        <receiver
+101-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+102            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+102-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+103            android:directBootAware="false"
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+104            android:enabled="true"
+104-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+105            android:exported="true"
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+106            android:permission="android.permission.DUMP" >
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+108                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+109            </intent-filter>
+110            <intent-filter>
+110-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+111                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+112            </intent-filter>
+113            <intent-filter>
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+114                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+115            </intent-filter>
+116            <intent-filter>
+116-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+117                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+117-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+117-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/manda/.gradle/caches/8.13/transforms/c02b9387e63156b41291297d21e25f8a/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+118            </intent-filter>
+119        </receiver>
+120    </application>
+121
+122</manifest>

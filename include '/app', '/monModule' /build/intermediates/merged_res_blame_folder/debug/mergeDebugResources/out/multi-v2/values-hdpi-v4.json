@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.infinity.monmodule.monModule' -mergeDebugResources-24:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/manda/.gradle/caches/8.13/transforms/15e9ee6e609894042c84c71f2a690777/transformed/appcompat-1.2.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

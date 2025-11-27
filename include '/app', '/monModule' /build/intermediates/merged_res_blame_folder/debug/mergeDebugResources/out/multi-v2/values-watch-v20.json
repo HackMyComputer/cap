@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.infinity.monmodule.monModule' -mergeDebugResources-24:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/home/manda/.gradle/caches/8.13/transforms/15e9ee6e609894042c84c71f2a690777/transformed/appcompat-1.2.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}
