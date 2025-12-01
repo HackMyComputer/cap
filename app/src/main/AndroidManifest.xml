@@ -25,7 +25,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GLBARViewer"
+        android:theme="@style/Theme.IMVIEW"
         tools:ignore="RtlEnabled,UnusedAttribute">
 
         <!-- Indique à ARCore que l'app est AR requise -->
@@ -37,7 +37,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.GLBARViewer"
+            android:theme="@style/Theme.IMVIEW"
             tools:ignore="RedundantLabel">
 
             <intent-filter>
