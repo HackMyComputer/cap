@@ -7,6 +7,11 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">GLB AR Viewer</string>
-    <style name="Theme.GLBARViewer" parent="android:Theme.Material.Light.NoActionBar"/>
+    <string name="app_name">IMVIEW</string>
+    <style name="Theme.IMVIEW" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+    </style>
 </resources>

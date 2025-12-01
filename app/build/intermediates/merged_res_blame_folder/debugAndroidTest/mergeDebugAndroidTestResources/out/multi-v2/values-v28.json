@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.glbarviewer.test.app-mergeDebugAndroidTestResources-34:/values-v28/values-v28.xml",
+            "outputFile": "com.example.imview.test.app-mergeDebugAndroidTestResources-27:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "/home/manda/.gradle/caches/8.13/transforms/7552ba910c7c43996dd76bffde74b8dc/transformed/core-1.7.0/res/values-v28/values.xml",
+                    "source": "/home/manda/.gradle/caches/8.13/transforms/f79dab8e0261538ebbc54690c3812398/transformed/core-1.7.0/res/values-v28/values.xml",
                     "from": {
                         "startLines": "4,13",
                         "startColumns": "0,0",

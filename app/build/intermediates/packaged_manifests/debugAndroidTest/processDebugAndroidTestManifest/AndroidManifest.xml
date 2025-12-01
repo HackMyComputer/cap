@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.glbarviewer.test" >
+    package="com.example.imview.test" >
 
     <uses-sdk
-        android:minSdkVersion="23"
+        android:minSdkVersion="25"
         android:targetSdkVersion="36" />
 
     <instrumentation
         android:name="androidx.test.runner.AndroidJUnitRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for com.example.glbarviewer"
-        android:targetPackage="com.example.glbarviewer" />
+        android:label="Tests for com.example.imview"
+        android:targetPackage="com.example.imview" />
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
 

@@ -4,7 +4,7 @@
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.example.glbarviewer",
+  "applicationId": "com.example.imview",
   "variantName": "debug",
   "elements": [
     {
